@@ -603,19 +603,7 @@
 
   function openPDF(card) {
     const pdfUrl = card.dataset.pdf;
-    const titleFull = card.dataset.title || '';
-    const parts = titleFull.split(' / ');
-    const num = parts[0] || '';
-    const name = parts.slice(1).join(' / ') || '';
-
-    modalNum.textContent = num + ' / ';
-    modalName.textContent = name;
-    iframe.src = pdfUrl + '#toolbar=1&navpanes=0';
-
-    modal.classList.add('is-open');
-    modal.setAttribute('aria-hidden', 'false');
-    document.body.style.overflow = 'hidden';
-    modalClose.focus();
+    window.open(pdfUrl, '_blank', 'noopener');
   }
 
   function closePDF() {
